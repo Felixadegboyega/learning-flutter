@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
             ContactTile(
               icon: Icons.location_on_outlined,
               name: 'Address',
-              value:'God is Able Villa, Ore-ofe Oluwa Area, Ogbomoso'
+              value:'God is Able Villa, Ore-ofe Oluwa Area,'
             ),
           ],
         ),
