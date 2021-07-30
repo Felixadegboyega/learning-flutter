@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ContactTile extends StatelessWidget {
+class ContactTile extends StatefulWidget {
   ContactTile({
     this.icon,
     this.name,
@@ -12,14 +12,26 @@ class ContactTile extends StatelessWidget {
   final String? value;
 
   @override
+  _ContactTileState createState() => _ContactTileState();
+}
+
+class _ContactTileState extends State<ContactTile> {
+  bool isTouched = false;
+  @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: (){
+        setState(() {
+          isTouched = !isTouched;
+        });
+      },
+      tileColor: isTouched ? Colors.blueGrey : Colors.white,
       leading: Icon(
-        icon,
+        widget.icon,
         size: 40,
       ),
       title: Text(
-        name!,
+        widget.name!,
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
@@ -27,7 +39,7 @@ class ContactTile extends StatelessWidget {
         ),
       ),  
       subtitle: Text(
-        value!,
+        widget.value!,
         style: TextStyle(
           color: Colors.grey,
           fontSize: 20,
